@@ -25,8 +25,11 @@ Create an automation using corntab. In the following example shutting down the r
 0 18 * * * /home/opc/ocicli/autostopping/stop_adbs.sh > /home/opc/ocicli/autostopping/log/stop_adbs_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
 0 18 * * * /home/opc/ocicli/autostopping/stop_dbsystem_nodes.sh > /home/opc/ocicli/autostopping/log/stop_dbsystem_nodes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
 0 18 * * * /home/opc/ocicli/autostopping/stop_computes.sh > /home/opc/ocicli/autostopping/log/stop_computes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
-3 * * * * find /home/opc/ocicli/autostopping/log/ -type f -mtime +7 -name '*.log' -execdir rm -- '{}' \;
+* 3 * * * find /home/opc/ocicli/autostopping/log/ -type f -mtime +7 -name '*.log' -execdir rm -- '{}' \;
 
+make sure your environment is sourced in cron by add following line to crontab (change the path to your .profile file): 
+SHELL=/bin/bash
+BASH_ENV=/home/opc/.bash_profile
 
 IMPORTANT: the scripts do not start the resources in the next morning:
 Option 1: every one in the team starts only the resources needed manually.
