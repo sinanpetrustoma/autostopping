@@ -22,9 +22,9 @@ chmod +x /home/opc/ocicli/autostopping/*.sh
 
 Step 5: 
 Create an automation using corntab. In the following example shutting down the resources every day at 6p.m. and keeping the log files for 7 days.
-0 18 * * * /home/opc/ocicli/autostopping/stop_adbs_all_compartments.sh > /home/opc/ocicli/autostopping/log/stop_adbs_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
-0 18 * * * /home/opc/ocicli/autostopping/stop_dbsystem_nodes_all_compartments.sh > /home/opc/ocicli/autostopping/log/stop_dbsystem_nodes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
-0 18 * * * /home/opc/ocicli/autostopping/stop_computes_all_compartments.sh > /home/opc/ocicli/autostopping/log/stop_computes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
+0 18 * * * /home/opc/ocicli/autostopping/stop_adbs.sh > /home/opc/ocicli/autostopping/log/stop_adbs_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
+0 18 * * * /home/opc/ocicli/autostopping/stop_dbsystem_nodes.sh > /home/opc/ocicli/autostopping/log/stop_dbsystem_nodes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
+0 18 * * * /home/opc/ocicli/autostopping/stop_computes.sh > /home/opc/ocicli/autostopping/log/stop_computes_`date '+\%Y\%m\%d_\%H\%M\%S'`.log
 3 * * * * find /home/opc/ocicli/autostopping/log/ -type f -mtime +7 -name '*.log' -execdir rm -- '{}' \;
 
 
