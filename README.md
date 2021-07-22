@@ -52,11 +52,13 @@ IMPORTANT: the scripts do not start the resources in the next morning:
 Option 1: every one in the team starts only the resources needed manually.
 Option 2: duplicate the scripts and replace "stop" by "start" and create crontab roles to run them
 
+Step 7:
+If you are using a compute VM in OCI to run the scripts, don't forget to tag this instance with a TAG named "AutoStopping" and value "NO" to prevent the scripts from stopping the instance where they are running ;-)
 
-Step 7 (Optional):
+Step 8 (Optional):
 To prevent specific instances from auto stop, add a TAG named "AutoStopping" with the value "NO" to the resource
 
 
-Step 8 (Optional):
+Step 9 (Optional):
 To prevent all ADBs, Compute, and DB Systems of a specific Compartment to be stopped, add the TAG to the Compartment itself.
 Some Compartments like ManagedCompartmentForPaaS cannot be edited. In this case add the Compartment OCID ot the whitelist.txt file.
